@@ -5,7 +5,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 ---
 
-## "analysis.R"
+## "run_analysis.R"
 Created an R script that takes in raw data and cleans it.  
 Following steps are achieved:
 1. Merges the training and the test sets to create one data set.
