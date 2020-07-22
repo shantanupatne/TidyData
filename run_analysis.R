@@ -14,7 +14,6 @@ names(subject_train) <- "Subjects"
 ftrain <- read.table("train/X_train.txt")
 atrain <- read.table("train/y_train.txt")
 
-#Question 3
 #assign descriptive activity names to the activity table according to the levels
 for(i in atrain){
   atrain <- name[i,]
@@ -26,7 +25,6 @@ names(ftrain) <- features$V2
 ftest <- read.table("test/X_test.txt")
 atest <- read.table("test/y_test.txt")
 
-#Question 3
 #assign descriptive activity names to the activity table according to the levels
 for(i in atest){
   atest <- name[i,]
@@ -39,15 +37,12 @@ names(ftest) <- features$V2
 train_set <- cbind(subject_train, activity = atrain$V2, ftrain)
 test_set <- cbind(subject_test, activity = atest$V2, ftest)
 
-#Question 1
 #Merge the two sets
 merged_set <- rbind(train_set, test_set)
 
-#Question 2
 #Extract only mean and std measurements from the merged set
 matched_set <- merged_set %>% select(1,2,matches("mean|std"))
 
-#Question 4
 #Renaming the variables using descriptive names
 t <- names(matched_set)
 t<-gsub("tBody*", "Time Domain Body ",t)
@@ -66,7 +61,6 @@ t<-gsub("mean()", "Signal Mean ", t)
 t<-gsub("std()", "Signal SD", t)
 names(matched_set) <- t
 
-#Question 5
 #create a tidy dataset from the above datasets
 tidydata<-matched_set%>%group_by(Subjects,activity)%>%summarise_all(mean)
 
