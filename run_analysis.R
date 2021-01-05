@@ -15,8 +15,8 @@ ftrain <- read.table("train/X_train.txt")
 atrain <- read.table("train/y_train.txt")
 
 #assign descriptive activity names to the activity table according to the levels
-for(i in atrain){
-  atrain <- name[i,]
+for(j in atrain){
+  atrain <- name[j,]
 }
 #assign feature names to the feature table
 names(ftrain) <- features$V2
